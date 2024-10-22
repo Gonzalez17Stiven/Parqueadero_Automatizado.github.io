@@ -94,7 +94,8 @@ footer .footer-text{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: 2px solid #fff;
+    border-top: 2px 
+    color: rgb(4, 80, 70);
 }
 footer .footer-text p{
     font-size: 20px;
