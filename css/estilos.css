@@ -3,6 +3,19 @@
     height:250px;
     margin-left:1px;
     margin-rignit: 20px;
+
+    main {
+    h2{
+   position: relative;
+    font-family: "Algerian", sans-serif;
+        font-size: 30px; 
+    }
+    aside{
+    width: 30%;
+        position: relative;
+    }
+ }
+
     
 }
         
@@ -68,17 +81,6 @@ nav a:hover{
     text-align: justify;
     padding: 10px;
 }
-main {
-    h2{
-   position: relative;
-    font-family: "Algerian", sans-serif;
-        font-size: 30px; 
-    }
-    aside{
-    width: 30%;
-        position: relative;
-    }
- }
 
 footer{
     bottom: 0;
