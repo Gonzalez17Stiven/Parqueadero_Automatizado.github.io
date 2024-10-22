@@ -61,16 +61,17 @@ nav a:hover{
     text-align: justify;
     padding: 10px;
 }
-h2{
+main {
+    h2{
    position: relative;
     font-family: "Franklin Gothic Medium";
-}
-aside{
+    }
+    aside{
     width: 30%;
         position: relative;
-        background-color: rgb(244, 253, 6); 
+    }
+ }
 
-}
 footer{
     bottom: 0;
     position: relative;
