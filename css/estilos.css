@@ -64,7 +64,8 @@ nav a:hover{
 main {
     h2{
    position: relative;
-    font-family: "Franklin Gothic Medium";
+    font-family: "Algerian", sans-serif;
+        font-size: 30px; 
     }
     aside{
     width: 30%;
