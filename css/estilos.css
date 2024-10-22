@@ -61,10 +61,9 @@ nav a:hover{
     text-align: justify;
     padding: 10px;
 }
-section, #menu_redes{
-    display: inline-block;
-    margin: 5px 0px 0px;
-    vertical-align: top;
+h2{
+   position: relative;
+    font-family: "Franklin Gothic Medium";
 }
 aside{
     width: 30%;
