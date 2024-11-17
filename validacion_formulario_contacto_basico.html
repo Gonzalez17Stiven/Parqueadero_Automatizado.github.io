@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- <meta http-equiv="content-type" content="text/html"; charset="utf-8"> -->
+    <meta http-equiv="content-type" content="text/html"; charset="iso-8859-1"> 
+    <meta name="description" content="Ejercicios para validación de datos">
+    <meta name="keyworks" content="validar campos, expresiones regulares">
+    <title>EJERCICIO VALIDADOR DATOS FORMULARIO</title>
+
+    <style type="text/css">
+        body {background-color:lightcyan; font-family: sans-serif;}
+        label {color: maroon; display:block; padding:5px;}
+	    input {margin:10px;}
+    </style>
+
+    <script type="text/javascript" src="js/funciones_validacion_formularios_basico.js"></script>    
+
+</head>
+<body>
+    <header>
+        <h2>EJERCICIO VALIDACIÓN DE DATOS 3</h2><hr><br>            
+    </header>
+     <p>Este ejercicio puede ser utilizado como ejemplo para implementar controles de verificación de DATOS ingresados en un formulario de HTML5.   Aquí puede observar algunos procedimiento simples utilizando <i>"Expresiones Regulares"</i> que suelen aplicarse para validar la consistencia de los datos capturados y para asegurar que los datos estén correctos antes de su almacenamiento o procesamiento.</p>
+    <p>Sirve como tutorial y referencia para conocer el lenguaje de programación <b>Java Script</b> y su utilidad en el desarrollo de páginas WEB.</p>
+    <p> En este formulario se registran cinco datos con características y condiciones de validación diferentes: </p>
+    <ul>
+        <li><u>Nombre y Apellido:</u> Dato alfanumérico, incluye espacios en blanco, letras con acentos y otros caracteres especiales como la "ñ". Debe empezar por una letra y no puede contener algunos símbolos como el $, @, %, entre otros.</li>
+        <li><u>Edad:</u> Dato numérico (positivo) mayor que 10 y menor que 100.</li>
+        <li><u>Fecha de Nacimiento:</u> Dato tipo Fecha en formato <i>dd/mm/aaaa</i> debe ser una fecha válida según calendario de cada mes.</li>
+        <li><u>Género:</u> Dato tipo Caracter, mediante selección entre varias opciones (F o M), controla que se haya elegido alguna las opciones disponibles.</li>
+        <li><u>Correo Electrónico:</u> Texto con una dirección de correo electronico en formato <i>usuario.usuario@dominio.extension</i> </li> 
+        <li><u>Número Telefónico:</u> cifra numérica entera positiva, debe tener como mínimo 7 dígitos de longitud</li> 
+        <li><u>Tipo de Número Telefónico:</u> listado de selección mediante cuadro combinado <i>(lista desplegable)</i></li> 
+        <li><u>Mensaje de texto:</u> Mensaje de texto largo que puede ocupar varios renglones, de máximo 1000 caracteres de longitud <i>(textarea)</i></li> 
+        <li><u>Aceptación de términos y condiciones:</u> Caja de chequeo, mediante la cual se marca o se desmarca la aceptación de un dato, en este caso el tratamiento de datos para aceptar envío del formulario</li> 
+    </ul>
+    <hr>
+    <!-- mostramos imágenes alusivas al ejercicio -->
+    <img id="img1" src="imagenes/clipart-javascript1-140x100.png" />
+    <img id="img1" src="imagenes/javascript-110x100.png" />
+    <br><br>
+    <h2>Formulario: DATOS PERSONALES</h2><hr><br>
+    <! ----------------------------------------- -->  
+    <form name="miniformulario" class="formulario" method="get" onsubmit="return validarDatos()" action="pagina2.php">
+        
+        <label for="nombre">Nombre</label>   
+        <input type="text" id="nombre" name="nombre" placeholder="ingrese el Nombre..."/><img width="20" height="20"  style='visibility: hidden;' /><br/>
+        
+        <label for="apellido">Apellidos</label>
+        <input type="text" id="apellido" name="apellido" placeholder="ingrese el Apellido..."/><img width="20" height="20"  style='visibility: hidden;' /><br/>
+        
+        <label for="edad">edad</label>
+        <input type="text" id="edad" name="edad" placeholder="edad..."/><img width="20" height="20"  style='visibility: hidden;' /><br/>
+        
+        <label for="fecha">fecha nacimiento</label>
+        <input type="text" id="fecha" name="fecha" placeholder="dd/mm/aaaa"/><img width="20" height="20"  style='visibility: hidden;' /><br/>
+
+        
+        <label style='display: inline;'>Género:</label>
+        <img id="img_valida_genero" width="20" height="20"  style='visibility: hidden;' />
+        <ul>
+            <li>
+            <input type="radio" id="genF" name="genero" value="F" /> 
+            <label for="genF" style='display: inline;' >Femenino</label> 
+            </li>
+            <li>
+                <input type="radio" id="genM"  name="genero" value="M" />
+                <label for="genM" style='display: inline;' >Masculino</label>
+            </li>
+            <li>
+                <input type="radio" id="genO"  name="genero" value="O" />
+                <label for="genO" style='display: inline;' >Otro</label>
+            </li>
+        </ul>
+        
+      
+         
+        <label for="email">Correo electronico</label>
+        <input type="text" id="email" name="email" placeholder="ej.. nombre@dominio.ext"/><img width="20" height="20"  style='visibility: hidden;' /><br/><br/>
+         
+        <label for="telefono">Númeo telefónico</label>
+        <input type="text" id="telefono" name="telefono" placeholder="mínimo 7 dígitos"/><img width="20" height="20"  style='visibility: hidden;' /><br/><br/>
+        
+        <label style='display: inline;'>Tipo de Teléfono:</label>
+        <select name="tipo_telefono" id="tipo_telefono">    
+            <option hidden selected>Selecciona una opción</option>
+            <option value="1">Celular</option>
+            <option value="2">Casa</option>
+            <option value="3">Trabajo</option>
+            <option value="9">Otro</option>
+        </select>
+        <img id="img_valida_tipo_telefono" width="20" height="20"  style='visibility: hidden;' /><br/><br/> 
+        
+
+        <label style='display: inline;'>Mensaje, comentarios y sugerencias:</label>
+        <img id="img_valida_mensaje" width="20" height="20"  style='visibility: hidden;' /><br/>
+        <textarea rows='6' cols='80' id="mensaje" name="mensaje" placeholder="Escribanos su mensaje (máximo 1000 caracteres)" ></textarea>
+        <br/><br/>
+  
+        <hr> 
+        <input type="checkbox" name="autoriza_tratamiento_datos" value="autorizado" />
+        Autorizo el tratamiento de mis datos para contacto 
+        <img id="img_valida_Autorizacion_tratamiento_datos"  width="20" height="20"  style='visibility: hidden;' /><br/><br/>
+
+
+        <hr>       
+           
+        
+        <! ----------------------------------------- -->  
+        <! --- Botones de comando para el formularo  -->
+        <input type="submit"  value="Enviar" />
+        <! input type="reset" value="Reiniciar datos" />   
+        <input type="button" value="Reiniciar datos" onclick="resetearDatos()">
+    </form>
+</body>
+    
+</html>
+
