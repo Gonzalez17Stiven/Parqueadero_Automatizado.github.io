@@ -31,7 +31,7 @@
 }
 
 summary{
-    background: rgb(39, 90, 43);
+    background: rgb(133, 204, 209);
     color: white;
     padding: 20px;
 
@@ -47,7 +47,7 @@ p{
 
 header{
     display: flex;
-    background-color: rgb(4, 80, 7);
+    background-color: rgb(114 226, 126);
 
     
 }
